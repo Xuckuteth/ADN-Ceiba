@@ -1,0 +1,1 @@
+insert into cliente (nombre, estado) values (:nombre, :estado)

@@ -1,0 +1,23 @@
+jasypt:
+   encryptor:
+      password: ${jasyptpwd:secretkey}
+      algorithm: PBEWithMD5AndDES
+
+server:
+   port: 8083
+   servlet:
+      context-path: /AlquilerPeliculas
+      session:
+         timeout: 21600s
+
+spring:
+   datasource:
+      driver-class-name: com.mysql.cj.jdbc.Driver
+      type: com.zaxxer.hikari.HikariDataSource
+      jdbcUrl: jdbc:mysql://localhost:3306/tienda?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC
+      username: root
+      password: 
+      hikari:
+         poolName: pool
+   flyway:
+      baseline-on-migrate: true

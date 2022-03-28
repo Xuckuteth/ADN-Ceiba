@@ -1,0 +1,1 @@
+insert into alquiler (cliente, pelicula, fecha_alquiler, fecha_devolucion, valor) values (:cliente, :pelicula, :fechaAlquiler, :fechaDevolucion, :valor)

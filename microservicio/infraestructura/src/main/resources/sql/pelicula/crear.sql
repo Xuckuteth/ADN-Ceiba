@@ -1,0 +1,1 @@
+insert into pelicula (nombre, formato) values (:nombre, :formato)
