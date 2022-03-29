@@ -28,4 +28,6 @@ public interface RepositorioAlquiler {
      * @return si existe o no
      */
     boolean existePorId(Long id);
+
+    boolean existe(String nombre);
 }

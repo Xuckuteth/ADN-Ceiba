@@ -5,6 +5,8 @@ import com.ceiba.pelicula.modelo.entidad.Pelicula;
 import lombok.Getter;
 import java.time.LocalDate;
 
+import static com.ceiba.dominio.ValidadorArgumento.validarObligatorio;
+
 
 @Getter
 public class Alquiler {
@@ -17,6 +19,9 @@ public class Alquiler {
     public static final int DIAS_INCUMPLIMIENTO = 4;
 
     private static final String SE_DEBE_INGRESAR_EL_ID = "Se debe ingresar el ID";
+    private static final String SE_DEBE_INGRESAR_UN_CLIENTE = "Se debe ingresar un cliente";
+    private static final String SE_DEBE_INGRESAR_UNA_PELICULA = "Se debe ingresar una pelicula";
+
 
     private Long id;
     private Cliente cliente;
@@ -27,12 +32,14 @@ public class Alquiler {
 
 
     public Alquiler(Long id, Cliente cliente, Pelicula pelicula, LocalDate fechaAlquiler, LocalDate fechaDevolucion, String valor) {
+        validarObligatorio(cliente, SE_DEBE_INGRESAR_UN_CLIENTE);
+        validarObligatorio(pelicula, SE_DEBE_INGRESAR_UNA_PELICULA);
         this.id = id;
         this.cliente = cliente;
         this.pelicula = pelicula;
         this.fechaAlquiler = fechaAlquiler;
         this.fechaDevolucion = fechaDevolucion;
-        this.valor= valor + " USD";
+        this.valor= valor;
     }
 
 }

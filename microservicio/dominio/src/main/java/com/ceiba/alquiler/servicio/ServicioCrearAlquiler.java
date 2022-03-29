@@ -22,8 +22,9 @@ public class ServicioCrearAlquiler {
         return this.repositorioAlquiler.crear(alquiler);
     }
 
+
     private void validarExistenciaPrevia(Alquiler alquiler) {
-        boolean existe = this.repositorioAlquiler.existePorId(alquiler.getId());
+        boolean existe = this.repositorioAlquiler.existe(alquiler.getCliente().getNombre());
         if(existe) {
             throw new ExcepcionDuplicidad(EL_ALQUILER_YA_EXISTE_EN_EL_SISTEMA);
         }

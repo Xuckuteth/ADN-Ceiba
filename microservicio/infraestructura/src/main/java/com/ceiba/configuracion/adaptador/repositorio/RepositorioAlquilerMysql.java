@@ -60,4 +60,9 @@ public class RepositorioAlquilerMysql implements RepositorioAlquiler {
 
         return this.customNamedParameterJdbcTemplate.getNamedParameterJdbcTemplate().queryForObject(sqlExistePorId,paramSource, Boolean.class);
     }
+
+    @Override
+    public boolean existe(String nombre) {
+        return false;
+    }
 }
