@@ -34,7 +34,7 @@ public class ComandoControladorAlquiler {
     }
 
     @DeleteMapping(value="/{id}")
-    @ApiOperation("Eliminar Alquiler")
+    @ApiOperation("Pagar alquiler")
     public void eliminar(@PathVariable Long id) {
         manejadorEliminarAlquiler.ejecutar(id);
     }

@@ -1,10 +1,12 @@
 package com.ceiba.cliente.modelo.entidad;
 
 import lombok.Getter;
+import lombok.Setter;
 
 import static com.ceiba.dominio.ValidadorArgumento.validarObligatorio;
 
 @Getter
+@Setter
 public class Cliente {
 
     public static final String SE_DEBE_INGRESAR_EL_ID_DEL_CLIENTE = "Se debe ingresar el número de identificación del cliente";

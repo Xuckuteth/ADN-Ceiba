@@ -23,6 +23,7 @@ public class FabricaAlquiler {
         );
     }
 
+
     public LocalDate obtenerFechaAlquiler(){
         LocalDate fechaAlquiler = LocalDate.now();
         return fechaAlquiler;
@@ -74,7 +75,4 @@ public class FabricaAlquiler {
         return valorString;
     }
 
-    public void pago (){
-
-    }
 }

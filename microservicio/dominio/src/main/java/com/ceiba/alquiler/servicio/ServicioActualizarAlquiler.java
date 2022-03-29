@@ -1,8 +1,11 @@
 package com.ceiba.alquiler.servicio;
 
+import com.ceiba.cliente.modelo.entidad.Cliente;
 import com.ceiba.dominio.excepcion.ExcepcionDuplicidad;
 import com.ceiba.alquiler.modelo.entidad.Alquiler;
 import com.ceiba.alquiler.puerto.repositorio.RepositorioAlquiler;
+
+import java.time.LocalDate;
 
 
 public class ServicioActualizarAlquiler {
@@ -25,4 +28,5 @@ public class ServicioActualizarAlquiler {
             throw new ExcepcionDuplicidad(EL_ALQUILER_NO_EXISTE_EN_EL_SISTEMA);
         }
     }
+
 }

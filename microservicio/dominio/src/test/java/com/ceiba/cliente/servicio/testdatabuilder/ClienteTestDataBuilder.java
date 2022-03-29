@@ -1,10 +1,7 @@
 package com.ceiba.cliente.servicio.testdatabuilder;
 
 import com.ceiba.cliente.modelo.entidad.Cliente;
-import com.ceiba.usuario.modelo.entidad.Usuario;
-import com.ceiba.usuario.servicio.testdatabuilder.UsuarioTestDataBuilder;
 
-import java.time.LocalDateTime;
 
 public class ClienteTestDataBuilder {
 
@@ -27,6 +24,10 @@ public class ClienteTestDataBuilder {
         return this;
     }
 
+    public ClienteTestDataBuilder conEstado(String estado) {
+        this.estado = estado;
+        return this;
+    }
 
     public Cliente build() {
         return new Cliente(id, nombre, estado);

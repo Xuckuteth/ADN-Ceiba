@@ -9,7 +9,6 @@ public class Pelicula {
 
     public static final String FORMATO_BLUERAY = "Blue-ray";
     public static final String FORMATO_DVD = "DVD";
-    public static final String SE_DEBE_INGRESAR_EL_ID_DE_LA_PELICULA = "Se debe ingresar el ID de la película";
     public static final String SE_DEBE_INGRESAR_EL_NOMBRE_DE_LA_PELICULA = "Se debe ingresar el nombre de la película";
     public static final String SE_DEBE_INGRESAR_EL_FORMATO_DE_LA_PELICULA = "Se debe ingresar el formato de la película: ==> Blue-ray <== o ==> DVD <==";
 
@@ -21,7 +20,6 @@ public class Pelicula {
     public Pelicula(){}
 
     public Pelicula(Long id, String nombre, String formato) {
-        validarObligatorio(id, SE_DEBE_INGRESAR_EL_ID_DE_LA_PELICULA);
         validarObligatorio(nombre, SE_DEBE_INGRESAR_EL_NOMBRE_DE_LA_PELICULA);
         validarObligatorio(formato, SE_DEBE_INGRESAR_EL_FORMATO_DE_LA_PELICULA);
 
