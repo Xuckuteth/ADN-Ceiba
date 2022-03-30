@@ -36,17 +36,15 @@ pipeline {
     }
 
 
-    stage('Compile & Unit Tests') {
+        stage('Compile & Unit Tests') {
       steps{
-        echo "------------>Unit Tests<------------"
-		sh 'gradle --b ./ADN-Alquiler/microservicio/build.gradle clean'
-					
-		echo "------------>Unit Test<------------"
-		sh 'gradle --b ./ADN-Alquiler/microservicio/build.gradle test jacocoTestReport'
-		
+        echo "------------>Compile & Unit Tests<------------"
+		sh 'chmod +x ./microservicio/gradlew'
+		sh '.microservicio/gradlew --b .microservicio/build.gradle clean'
+		sh '.microservicio/gradlew --b .microservicio/build.gradle test'
       }
-    }
 	}
+
 
     stage('Static Code Analysis') {
       steps{
