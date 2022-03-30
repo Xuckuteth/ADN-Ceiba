@@ -8,7 +8,6 @@ import static com.ceiba.dominio.ValidadorArgumento.validarObligatorio;
 @Getter
 @Setter
 public class Cliente {
-
     public static final String SE_DEBE_INGRESAR_EL_ID_DEL_CLIENTE = "Se debe ingresar el número de identificación del cliente";
     public static final String SE_DEBE_INGRESAR_EL_NOMBRE_DEL_CLIENTE = "Se debe ingresar el nombre del cliente";
     public static final String SE_DEBE_INGRESAR_EL_ESTADO_DEL_CLIENTE = "Se debe ingresar el estado del cliente";
