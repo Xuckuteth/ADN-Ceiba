@@ -42,6 +42,17 @@ pipeline {
 		sh './ADN-Alquiler/microservicio/gradlew --b ./ADN-Alquiler/microservicio/build.gradle clean'
 		sh './ADN-Alquiler/microservicio/gradlew --b ./ADN-Alquiler/microservicio/build.gradle test'
       }
+
+    stage('Compile & Unit Tests') {
+      steps{
+        echo "------------>Unit Tests<------------"
+		sh 'gradle --b ./ADN-Alquiler/microservicio/build.gradle clean'
+					
+		echo "------------>Unit Test<------------"
+		sh 'gradle --b ./ADN-Alquiler/microservicio/build.gradle test jacocoTestReport'
+		
+      }
+    }
 	}
 
     stage('Static Code Analysis') {
