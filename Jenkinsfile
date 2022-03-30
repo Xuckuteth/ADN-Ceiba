@@ -35,13 +35,6 @@ pipeline {
       }
     }
 
-    stage('Compile & Unit Tests') {
-      steps{
-        echo "------------>Compile & Unit Tests<------------"
-		sh 'chmod +x ./ADN-Alquiler/microservicio/gradlew'
-		sh './ADN-Alquiler/microservicio/gradlew --b ./ADN-Alquiler/microservicio/build.gradle clean'
-		sh './ADN-Alquiler/microservicio/gradlew --b ./ADN-Alquiler/microservicio/build.gradle test'
-      }
 
     stage('Compile & Unit Tests') {
       steps{
