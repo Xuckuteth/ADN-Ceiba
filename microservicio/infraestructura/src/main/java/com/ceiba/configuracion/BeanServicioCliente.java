@@ -22,6 +22,6 @@ public class BeanServicioCliente {
 
     @Bean
     public ServicioActualizarCliente servicioActualizarCliente(RepositorioCliente repositorioCliente) {
-        return new ServicioActualizarCliente(repositorioCliente);
+        return new ServicioActualizarCliente(repositorioCliente, null);
     }
 }

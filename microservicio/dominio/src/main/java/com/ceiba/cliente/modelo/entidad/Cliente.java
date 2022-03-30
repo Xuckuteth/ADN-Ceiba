@@ -32,5 +32,10 @@ public class Cliente {
         this.estado = estado;
     }
 
+    public Cliente(Long id, String estado){
+        this.id = id;
+        this.estado = estado;
+    }
+
     public Cliente(){}
 }

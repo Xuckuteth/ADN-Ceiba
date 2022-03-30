@@ -5,18 +5,21 @@ import com.ceiba.alquiler.puerto.repositorio.RepositorioAlquiler;
 
 
 public class ServicioEliminarAlquiler {
+
     private final RepositorioAlquiler repositorioAlquiler;
+
 
     public ServicioEliminarAlquiler(RepositorioAlquiler repositorioAlquiler) {
         this.repositorioAlquiler = repositorioAlquiler;
     }
 
     public void ejecutar(Long id) {
+
         this.repositorioAlquiler.eliminar(id);
     }
 
 
-    /* private void actualizarEstadoCliente(DtoAlquiler alquiler) {
+    /* private void actualizarEstadoCliente() {
         LocalDate fecha = LocalDate.now();
         if (alquiler.getFechaDevolucion().isBefore(fecha)){
             if (alquiler.getCliente().getEstado().equals(Cliente.ESTANDAR)){

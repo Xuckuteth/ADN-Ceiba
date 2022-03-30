@@ -2,6 +2,7 @@ package com.ceiba.alquiler.controlador;
 
 import com.ceiba.ComandoRespuesta;
 import com.ceiba.alquiler.comando.ComandoAlquiler;
+import com.ceiba.alquiler.comando.ComandoAlquilerActulizador;
 import com.ceiba.alquiler.manejador.ManejadorActualizarAlquier;
 import com.ceiba.alquiler.manejador.ManejadorCrearAlquiler;
 import com.ceiba.alquiler.manejador.ManejadorEliminarAlquiler;

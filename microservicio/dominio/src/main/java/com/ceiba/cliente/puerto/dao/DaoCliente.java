@@ -14,4 +14,6 @@ public interface DaoCliente {
     List<DtoCliente> listar();
 
     DtoCliente consultarPorId(Long id);
+
+
 }

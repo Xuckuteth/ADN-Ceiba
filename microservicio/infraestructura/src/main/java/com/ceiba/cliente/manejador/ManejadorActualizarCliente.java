@@ -1,5 +1,6 @@
 package com.ceiba.cliente.manejador;
 
+import com.ceiba.alquiler.modelo.dto.DtoAlquiler;
 import com.ceiba.manejador.ManejadorComando;
 import com.ceiba.cliente.comando.ComandoCliente;
 import com.ceiba.cliente.comando.fabrica.FabricaCliente;
@@ -20,6 +21,10 @@ public class ManejadorActualizarCliente implements ManejadorComando<ComandoClien
 
     public void ejecutar(ComandoCliente comandoCliente) {
         Cliente cliente = this.fabricaCliente.crear(comandoCliente);
-        this.servicioActualizarCliente.ejecutar(cliente);
+        this.servicioActualizarCliente.ejecutar(null);
+    }
+
+    public void ejecutarModificar(DtoAlquiler dtoAlquiler) {
+        this.servicioActualizarCliente.ejecutar(dtoAlquiler);
     }
 }

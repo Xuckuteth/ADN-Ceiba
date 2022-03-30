@@ -15,6 +15,14 @@ public class FabricaCliente {
         );
     }
 
+    public Cliente modificar(ComandoCliente comandoCliente) {
+        return new Cliente(
+                comandoCliente.getId(),
+                comandoCliente.getNombre(),
+                comandoCliente.getEstado()
+        );
+    }
+
     public String asignarEstado(){
         return Cliente.ESTANDAR;
     }
