@@ -10,6 +10,7 @@ import com.ceiba.cliente.modelo.entidad.Cliente;
 import com.ceiba.cliente.puerto.repositorio.RepositorioCliente;
 
 import java.time.LocalDate;
+import java.util.List;
 
 public class ServicioActualizarCliente {
 
@@ -18,20 +19,20 @@ public class ServicioActualizarCliente {
     private final RepositorioCliente repositorioCliente;
     private final DaoCliente daoCliente;
 
+
     public ServicioActualizarCliente(RepositorioCliente repositorioCliente, DaoCliente daoCliente) {
         this.repositorioCliente = repositorioCliente;
         this.daoCliente = daoCliente;
     }
 
-    public void ejecutar(DtoAlquiler dtoAlquiler) {
-        this.repositorioCliente.actualizar(actualizarEstadoCliente(dtoAlquiler));
+    public void ejecutar(DtoAlquiler dtoAlquiler, DtoCliente dtoCliente) {
+        this.repositorioCliente.actualizar(actualizarEstadoCliente(dtoAlquiler, dtoCliente));
     }
 
 
-    private Cliente actualizarEstadoCliente(DtoAlquiler alquiler) {
-        LocalDate fecha = LocalDate.now().plusDays(15);
-        DtoCliente clienteDto = this.daoCliente.consultarPorId(alquiler.getCliente());
-        Cliente cliente = new Cliente(clienteDto.getId(),clienteDto.getNombre(),clienteDto.getEstado());
+    private Cliente actualizarEstadoCliente(DtoAlquiler alquiler, DtoCliente dtoCliente) {
+        LocalDate fecha = LocalDate.now();
+        Cliente cliente = new Cliente(dtoCliente.getId(), dtoCliente.getNombre(), dtoCliente.getEstado());
         if (alquiler.getFechaDevolucion().isBefore(fecha)){
             if (cliente.getEstado().equals(Cliente.ESTANDAR)){
                 cliente.setEstado(Cliente.INCUMPLIMIENTO);

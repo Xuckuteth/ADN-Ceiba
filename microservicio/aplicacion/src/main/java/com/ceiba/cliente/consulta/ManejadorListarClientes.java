@@ -1,6 +1,5 @@
 package com.ceiba.cliente.consulta;
 
-import com.ceiba.alquiler.modelo.dto.DtoAlquiler;
 import com.ceiba.cliente.modelo.dto.DtoCliente;
 import com.ceiba.cliente.puerto.dao.DaoCliente;
 import org.springframework.stereotype.Component;

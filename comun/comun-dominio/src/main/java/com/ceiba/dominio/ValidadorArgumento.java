@@ -15,7 +15,8 @@ public class ValidadorArgumento {
 	
 	private ValidadorArgumento() {}
 
-    public static void validarObligatorio(Object valor, String mensaje) {
+    public static void
+    validarObligatorio(Object valor, String mensaje) {
         if (valor == null) {
             throw new ExcepcionValorObligatorio(mensaje);
         }
@@ -39,8 +40,8 @@ public class ValidadorArgumento {
         }
     }
 
-    public static void validarIgual(Double valor, Double valorEsperado, String mensaje) {
-        if (!valor.equals(valorEsperado)) {
+    public static void validarIgual(String valor, String valorEsperado, String mensaje) {
+        if (valor.equals(valorEsperado)) {
             throw new ExcepcionValorInvalido(mensaje);
         }
     }

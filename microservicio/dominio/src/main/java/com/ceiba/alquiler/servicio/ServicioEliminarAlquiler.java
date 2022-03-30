@@ -18,17 +18,4 @@ public class ServicioEliminarAlquiler {
         this.repositorioAlquiler.eliminar(id);
     }
 
-
-    /* private void actualizarEstadoCliente() {
-        LocalDate fecha = LocalDate.now();
-        if (alquiler.getFechaDevolucion().isBefore(fecha)){
-            if (alquiler.getCliente().getEstado().equals(Cliente.ESTANDAR)){
-                alquiler.getCliente().setEstado(Cliente.INCUMPLIMIENTO);
-            } else if (alquiler.getCliente().getEstado().equals(Cliente.INCUMPLIMIENTO)){
-                alquiler.getCliente().setEstado(Cliente.INCUMPLIMIENTO_X2);
-            } else if (alquiler.getCliente().getEstado().equals(Cliente.INCUMPLIMIENTO_X2)) {
-                alquiler.getCliente().setEstado(Cliente.VETATO);
-            }
-        }
-    } */
 }
