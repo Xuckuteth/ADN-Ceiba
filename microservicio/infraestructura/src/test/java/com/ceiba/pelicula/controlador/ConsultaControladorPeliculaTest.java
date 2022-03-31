@@ -1,4 +1,4 @@
-package com.ceiba.cliente.controlador;
+package com.ceiba.pelicula.controlador;
 
 import com.ceiba.ApplicationMock;
 import com.ceiba.usuario.controlador.ConsultaControladorUsuario;
@@ -20,43 +20,28 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 @ExtendWith(SpringExtension.class)
-@WebMvcTest(ConsultaControladorCliente.class)
+@WebMvcTest(ConsultaControladorUsuario.class)
 @ContextConfiguration(classes= ApplicationMock.class)
 @DirtiesContext(classMode = DirtiesContext.ClassMode.AFTER_EACH_TEST_METHOD)
-public class ConsultaControladorClienteTest {
-
+public class ConsultaControladorPeliculaTest {
     @Autowired
     private MockMvc mocMvc;
 
     @Test
-    @DisplayName("Deberia listar clientes")
-    void deberiaListarClientes() throws Exception {
+    @DisplayName("Deberia listar peliculas")
+    void deberiaListarPeliculas() throws Exception {
         // arrange
         // act - assert
-        mocMvc.perform(get("/clientes")
+        mocMvc.perform(get("/peliculas")
                         .contentType(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$", hasSize(2)))
-                .andExpect(jsonPath("$[0].nombre", is("Estiven")))
+                .andExpect(jsonPath("$[0].nombre", is("Avatar")))
                 .andExpect(jsonPath("$[0].id", is(1)))
-                .andExpect(jsonPath("$[0].estado", is("Estandar")))
-                .andExpect(jsonPath("$[1].nombre", is("Sebastian")))
+                .andExpect(jsonPath("$[0].formato", is("DVD")))
+                .andExpect(jsonPath("$[1].nombre", is("Harry Potter")))
                 .andExpect(jsonPath("$[1].id", is(2)))
-                .andExpect(jsonPath("$[1].estado", is("Estandar")));
+                .andExpect(jsonPath("$[1].formato", is("DVD")));
     }
 
-    @Test
-    @DisplayName("Deberia consultar un cliente por su id")
-    void deberiaConsultarUnClientePorSuId() throws Exception {
-        // arrange
-        // act - assert
-        mocMvc.perform(get("/clientes/1")
-                        .contentType(MediaType.APPLICATION_JSON))
-                .andExpect(status().isOk())
-                .andExpect(jsonPath("nombre", is("Estiven")))
-                .andExpect(jsonPath("id", is(1)))
-                .andExpect(jsonPath("estado", is("Estandar")));
-    }
 }
-
-

@@ -1,11 +1,8 @@
-package com.ceiba.cliente.controlador;
+package com.ceiba.pelicula.controlador;
 
 import com.ceiba.ApplicationMock;
-import com.ceiba.cliente.comando.ComandoCliente;
-import com.ceiba.cliente.servicio.testdatabuilder.ComandoClienteTestDataBuilder;
-import com.ceiba.usuario.comando.ComandoUsuario;
-import com.ceiba.usuario.controlador.ComandoControladorUsuario;
-import com.ceiba.usuario.servicio.testdatabuilder.ComandoUsuarioTestDataBuilder;
+import com.ceiba.pelicula.comando.ComandoPelicula;
+import com.ceiba.pelicula.servicio.testdatabuilder.ComandoPeliculaTestDataBuilder;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -20,14 +17,13 @@ import org.springframework.test.web.servlet.MockMvc;
 
 import static org.hamcrest.Matchers.hasSize;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 
 @ExtendWith(SpringExtension.class)
-@WebMvcTest(ComandoControladorCliente.class)
+@WebMvcTest(ComandoControladorPelicula.class)
 @ContextConfiguration(classes= ApplicationMock.class)
 @DirtiesContext(classMode = DirtiesContext.ClassMode.AFTER_EACH_TEST_METHOD)
-public class comandoControladorClienteTest {
+public class ComandoControladorPeliculaTest {
 
     @Autowired
     private ObjectMapper objectMapper;
@@ -36,47 +32,47 @@ public class comandoControladorClienteTest {
     private MockMvc mocMvc;
 
     @Test
-    @DisplayName("Deberia crear un cliente")
-    void deberiaCrearCliente() throws Exception{
+    @DisplayName("Deberia crear una pelicula")
+    void deberiaCrearPelicula() throws Exception{
         // arrange
-        ComandoCliente cliente = new ComandoClienteTestDataBuilder().build();
+        ComandoPelicula pelicula = new ComandoPeliculaTestDataBuilder().build();
         // act - assert
-        mocMvc.perform(post("/clientes")
+        mocMvc.perform(post("/peliculas")
                         .contentType(MediaType.APPLICATION_JSON)
-                        .content(objectMapper.writeValueAsString(cliente)))
+                        .content(objectMapper.writeValueAsString(pelicula)))
                 .andExpect(status().isOk())
                 .andExpect(content().json("{'valor': 3}"));
     }
 
     @Test
-    @DisplayName("Deberia eliminar un cliente si no esta asociado a un alquiler")
-    void deberiaEliminarUnCliente() throws Exception {
+    @DisplayName("Deberia eliminar una pelicula si no esta asociada a un alquiler")
+    void deberiaEliminarUnaPeliculaSiNoEstaAsociadaAUnAlquiler() throws Exception {
         // arrange
         Long id = 2L;
         // act - assert
-        mocMvc.perform(delete("/clientes/{id}",id)
+        mocMvc.perform(delete("/peliculas/{id}",id)
                         .contentType(MediaType.APPLICATION_JSON)
                         .accept(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk());
 
-        mocMvc.perform(get("/clientes")
+        mocMvc.perform(get("/peliculas")
                         .contentType(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$", hasSize(1)));
     }
 
     @Test
-    @DisplayName("No deberia eliminar un cliente si esta asociado a un alquiler")
-    void NoDeberiaEliminarUnClienteAsociadoAUnAlquiler() throws Exception {
+    @DisplayName("No deberia eliminar una pelicula si esta asociada a un alquiler")
+    void NoDeberiaEliminarUnaPeliculaAsociadaAUnAlquiler() throws Exception {
         // arrange
         Long id = 1L;
         // act - assert
-        mocMvc.perform(delete("/clientes/{id}",id)
+        mocMvc.perform(delete("/peliculas/{id}",id)
                         .contentType(MediaType.APPLICATION_JSON)
                         .accept(MediaType.APPLICATION_JSON))
                 .andExpect(status().isInternalServerError());
 
-        mocMvc.perform(get("/clientes")
+        mocMvc.perform(get("/peliculas")
                         .contentType(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$", hasSize(2)));
