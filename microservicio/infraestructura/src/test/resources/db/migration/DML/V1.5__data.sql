@@ -1,0 +1,1 @@
+insert into alquiler(id, cliente, pelicula, fecha_alquiler, fecha_devolucion, valor) values(1, 1, 1, now(), now(), 10)

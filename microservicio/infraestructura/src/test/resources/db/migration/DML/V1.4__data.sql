@@ -1,0 +1,1 @@
+insert into pelicula(id, nombre, formato) values(1,'Avatar','DVD')
