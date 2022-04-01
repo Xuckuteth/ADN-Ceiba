@@ -59,7 +59,7 @@ pipeline {
       steps {
         echo "------------>Build<------------"
 		// Construir sin test
-		sh './ADN-Alquiler/microservicio/gradlew --b ./ADN-Alquiler/microservicio/build.gradle build -x test'
+		sh './microservicio/gradlew --b ./microservicio/build.gradle build -x test'
       }
     }
   }
