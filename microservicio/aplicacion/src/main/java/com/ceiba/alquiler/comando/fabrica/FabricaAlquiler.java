@@ -40,7 +40,7 @@ public class FabricaAlquiler {
         }
 
         while (numeroDias != 0) {
-            if (!fecha.getDayOfWeek().toString().equals("SUNDAY") && !fecha.getDayOfWeek().toString().equals("SATURDAY")) {
+            if (fecha.getDayOfWeek().toString() != "SUNDAY" && fecha.getDayOfWeek().toString() != "SATURDAY") {
                 fecha = fecha.plusDays(1);
                 numeroDias -= 1;
             } else {
