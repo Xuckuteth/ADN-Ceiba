@@ -18,7 +18,7 @@ public class FabricaAlquiler {
                 comandoAlquiler.getCliente(),
                 comandoAlquiler.getPelicula(),
                 obtenerFechaAlquiler(),
-                calcularFechaDeDevolución(comandoAlquiler),
+                calcularFechaDeDevolucion(comandoAlquiler),
                 calcularValorAlquiler(comandoAlquiler)
         );
     }
@@ -29,7 +29,7 @@ public class FabricaAlquiler {
         return fechaAlquiler;
     }
 
-    public LocalDate calcularFechaDeDevolución(ComandoAlquiler comandoAlquiler){
+    public LocalDate calcularFechaDeDevolucion(ComandoAlquiler comandoAlquiler){
         int numeroDias = 0;
         LocalDate fecha = obtenerFechaAlquiler();
 
@@ -71,8 +71,8 @@ public class FabricaAlquiler {
                 valor = Alquiler.VALOR_BLUERAY + (Alquiler.VALOR_BLUERAY * Alquiler.SEGUNDO_INCREMENTO);
             }
         }
-        String valorString = String.valueOf(valor);
-        return valorString;
+
+        return String.valueOf(valor);
     }
 
 }

@@ -1,7 +1,5 @@
 package com.ceiba.alquiler.modelo.dto;
 
-import com.ceiba.cliente.modelo.entidad.Cliente;
-import com.ceiba.pelicula.modelo.entidad.Pelicula;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 

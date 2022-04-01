@@ -14,15 +14,12 @@ import java.util.List;
 
 public class ServicioActualizarCliente {
 
-    private static final String EL_CLIENTE_NO_EXISTE_EN_EL_SISTEMA = "El cliente no existe en el sistema";
 
     private final RepositorioCliente repositorioCliente;
-    private final DaoCliente daoCliente;
 
 
-    public ServicioActualizarCliente(RepositorioCliente repositorioCliente, DaoCliente daoCliente) {
+    public ServicioActualizarCliente(RepositorioCliente repositorioCliente) {
         this.repositorioCliente = repositorioCliente;
-        this.daoCliente = daoCliente;
     }
 
     public void ejecutar(DtoAlquiler dtoAlquiler, DtoCliente dtoCliente) {
@@ -42,7 +39,6 @@ public class ServicioActualizarCliente {
                 cliente.setEstado(Cliente.VETATO);
             }
         }
-        System.out.println(cliente);
         return cliente;
     }
 }
