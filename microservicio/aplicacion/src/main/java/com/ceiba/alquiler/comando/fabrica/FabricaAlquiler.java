@@ -6,6 +6,7 @@ import com.ceiba.cliente.modelo.entidad.Cliente;
 import com.ceiba.pelicula.modelo.entidad.Pelicula;
 import org.springframework.stereotype.Component;
 
+import java.time.DayOfWeek;
 import java.time.LocalDate;
 
 
@@ -39,7 +40,7 @@ public class FabricaAlquiler {
         }
 
         while (numeroDias != 0) {
-            if (fecha.getDayOfWeek().toString() != "SUNDAY" && fecha.getDayOfWeek().toString() != "SATURDAY") {
+            if (!fecha.getDayOfWeek().equals(DayOfWeek.SUNDAY) && !fecha.getDayOfWeek().equals(DayOfWeek.SATURDAY)) {
                 fecha = fecha.plusDays(1);
                 numeroDias -= 1;
             } else {
