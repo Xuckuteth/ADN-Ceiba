@@ -3,9 +3,6 @@ package com.ceiba.cliente.controlador;
 import com.ceiba.ApplicationMock;
 import com.ceiba.cliente.comando.ComandoCliente;
 import com.ceiba.cliente.servicio.testdatabuilder.ComandoClienteTestDataBuilder;
-import com.ceiba.usuario.comando.ComandoUsuario;
-import com.ceiba.usuario.controlador.ComandoControladorUsuario;
-import com.ceiba.usuario.servicio.testdatabuilder.ComandoUsuarioTestDataBuilder;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -27,7 +24,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @WebMvcTest(ComandoControladorCliente.class)
 @ContextConfiguration(classes= ApplicationMock.class)
 @DirtiesContext(classMode = DirtiesContext.ClassMode.AFTER_EACH_TEST_METHOD)
-public class comandoControladorClienteTest {
+public class ComandoControladorClienteTest {
 
     @Autowired
     private ObjectMapper objectMapper;
