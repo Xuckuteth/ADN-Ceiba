@@ -25,8 +25,7 @@ public class FabricaAlquiler {
 
 
     public LocalDate obtenerFechaAlquiler(){
-        LocalDate fechaAlquiler = LocalDate.now();
-        return fechaAlquiler;
+        return LocalDate.now();
     }
 
     public LocalDate calcularFechaDeDevolucion(ComandoAlquiler comandoAlquiler){

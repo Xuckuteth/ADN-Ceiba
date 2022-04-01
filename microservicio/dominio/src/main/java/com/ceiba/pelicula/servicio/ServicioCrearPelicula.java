@@ -8,7 +8,6 @@ import com.ceiba.usuario.modelo.entidad.Usuario;
 
 public class ServicioCrearPelicula {
 
-    private static final String EL_ID_DE_LA_PELICULA_YA_EXISTE = "El ID de la película ya existe en el sistema";
     private static final String EL_NOMBRE_DE_LA_PELICULA_YA_EXISTE_EN_EL_SISTEMA = "El nombre de la película ya existe en el sistema";
     private static final String FORMATO_INVALIDO = "El formato ingresado no es válido intente: DVD o Blue-ray ";
     private static final String FORMATO_DVD = "DVD";
@@ -33,12 +32,6 @@ public class ServicioCrearPelicula {
         }
     }
 
-    private void validarExistenciaPreviaPorId(Pelicula pelicula) {
-        boolean existe = this.repositorioPelicula.existePorId(pelicula.getId());
-        if(existe) {
-            throw new ExcepcionDuplicidad(EL_ID_DE_LA_PELICULA_YA_EXISTE);
-        }
-    }
 
     private void validarFormatoExistente(Pelicula pelicula){
         if (!pelicula.getFormato().equals(FORMATO_DVD) && !pelicula.getFormato().equals(FORMATO_BLUERAY)){
