@@ -1,6 +1,5 @@
 package com.ceiba.alquiler.manejador;
 
-import com.ceiba.alquiler.modelo.dto.DtoAlquiler;
 import com.ceiba.alquiler.puerto.dao.DaoAlquiler;
 import com.ceiba.cliente.manejador.ManejadorActualizarCliente;
 import com.ceiba.manejador.ManejadorComando;

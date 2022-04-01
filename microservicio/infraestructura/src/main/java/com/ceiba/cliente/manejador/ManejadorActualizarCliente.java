@@ -10,7 +10,6 @@ import com.ceiba.cliente.modelo.entidad.Cliente;
 import com.ceiba.cliente.servicio.ServicioActualizarCliente;
 import org.springframework.stereotype.Component;
 
-import java.util.List;
 
 @Component
 public class ManejadorActualizarCliente implements ManejadorComando<ComandoCliente> {

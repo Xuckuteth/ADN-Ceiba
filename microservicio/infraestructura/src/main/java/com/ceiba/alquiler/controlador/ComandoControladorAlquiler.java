@@ -2,7 +2,6 @@ package com.ceiba.alquiler.controlador;
 
 import com.ceiba.ComandoRespuesta;
 import com.ceiba.alquiler.comando.ComandoAlquiler;
-import com.ceiba.alquiler.comando.ComandoAlquilerActulizador;
 import com.ceiba.alquiler.manejador.ManejadorActualizarAlquier;
 import com.ceiba.alquiler.manejador.ManejadorCrearAlquiler;
 import com.ceiba.alquiler.manejador.ManejadorEliminarAlquiler;
@@ -40,10 +39,4 @@ public class ComandoControladorAlquiler {
         manejadorEliminarAlquiler.ejecutar(id);
     }
 
-    @PutMapping(value="/{id}")
-    @ApiOperation("Actualizar Alquiler")
-    public void actualizar(@RequestBody ComandoAlquiler comandoAlquiler,@PathVariable Long id) {
-        comandoAlquiler.setId(id);
-        manejadorActualizarAlquier.ejecutar(comandoAlquiler);
-    }
 }

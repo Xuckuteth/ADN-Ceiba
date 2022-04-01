@@ -1,7 +1,6 @@
 package com.ceiba.alquiler.controlador;
 
 import com.ceiba.ApplicationMock;
-import com.ceiba.cliente.controlador.ConsultaControladorCliente;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
