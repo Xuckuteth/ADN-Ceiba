@@ -14,18 +14,6 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 public class ServicioCrearClienteTest {
 
     @Test
-    @DisplayName("Deberia lanzar una excepcion cuando se valide la existencia del Cliente")
-    void deberiaLanzarUnaExcepcionCuandoSeValideLaExistenciaDelCliente() {
-        // arrange
-        Cliente cliente = new ClienteTestDataBuilder().build();
-        RepositorioCliente repositorioCliente = Mockito.mock(RepositorioCliente.class);
-        Mockito.when(repositorioCliente.existe(Mockito.anyString())).thenReturn(true);
-        ServicioCrearCliente servicioCrearCliente = new ServicioCrearCliente(repositorioCliente);
-        // act - assert
-        BasePrueba.assertThrows(() -> servicioCrearCliente.ejecutar(cliente), ExcepcionDuplicidad.class,"El cliente ya existe en el sistema");
-    }
-
-    @Test
     @DisplayName("Deberia Crear el cliente de manera correcta")
     void deberiaCrearElClienteDeManeraCorrecta() {
         // arrange

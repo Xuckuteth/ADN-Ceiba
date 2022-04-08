@@ -14,8 +14,8 @@ public class Alquiler {
 
     public static final int VALOR_BLUERAY = 12;
     public static final int VALOR_DVD = 8;
-    public static final double PRIMER_INCREMENTO = .2;
-    public static final double SEGUNDO_INCREMENTO = .5;
+    public static final double PRIMER_INCREMENTO = 0.2;
+    public static final double SEGUNDO_INCREMENTO = 0.5;
     public static final int DIAS_ESTANDAR= 10;
     public static final int DIAS_INCUMPLIMIENTO = 4;
 

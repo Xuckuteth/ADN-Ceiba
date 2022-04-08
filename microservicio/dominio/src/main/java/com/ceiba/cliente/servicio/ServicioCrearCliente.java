@@ -15,15 +15,8 @@ public class ServicioCrearCliente {
     }
 
     public Long ejecutar(Cliente cliente) {
-        /*validarExistenciaPrevia(cliente);*/
         return this.repositorioCliente.crear(cliente);
     }
-
-    private void validarExistenciaPrevia(Cliente cliente) {
-        boolean existe = this.repositorioCliente.existe(cliente.getNombre());
-        if (existe) {
-            throw new ExcepcionDuplicidad(EL_CLIENTE_YA_EXISTE_EN_EL_SISTEMA);
-        }
-    }
+    
 }
 
