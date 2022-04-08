@@ -15,7 +15,7 @@ public class ServicioCrearCliente {
     }
 
     public Long ejecutar(Cliente cliente) {
-        validarExistenciaPrevia(cliente);
+        /*validarExistenciaPrevia(cliente);*/
         return this.repositorioCliente.crear(cliente);
     }
 

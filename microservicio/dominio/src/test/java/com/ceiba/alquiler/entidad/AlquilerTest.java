@@ -1,4 +1,4 @@
-package com.ceiba.alquiler.servicio.entidad;
+package com.ceiba.alquiler.entidad;
 
 import com.ceiba.BasePrueba;
 import com.ceiba.alquiler.modelo.entidad.Alquiler;
