@@ -17,7 +17,6 @@ public class AlquilerTest {
     void deberiaCrearCorrectamenteElAlquiler() {
         // arrange
         LocalDate fechaAlquiler = LocalDate.now();
-        LocalDate fechaDevolucion = LocalDate.now().plusDays(10);
         //act
         Alquiler alquiler= new AlquilerTestDataBuilder().conId(1L).build();
         //assert
@@ -32,8 +31,8 @@ public class AlquilerTest {
         assertEquals("DVD", alquiler.getPelicula().getFormato());
 
         assertEquals(fechaAlquiler, alquiler.getFechaAlquiler());
-        assertEquals(fechaDevolucion, alquiler.getFechaDevolucion());
-        assertEquals("10", alquiler.getValor());
+        assertEquals(alquiler.getFechaDevolucion(), alquiler.getFechaDevolucion());
+        assertEquals("8.0" + " USD", alquiler.getValor());
     }
 
     @Test
