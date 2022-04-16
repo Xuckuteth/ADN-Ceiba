@@ -3,6 +3,8 @@ package com.ceiba.alquiler.modelo.entidad;
 import com.ceiba.cliente.modelo.entidad.Cliente;
 import com.ceiba.pelicula.modelo.entidad.Pelicula;
 import lombok.Getter;
+
+import java.time.DayOfWeek;
 import java.time.LocalDate;
 
 import static com.ceiba.dominio.ValidadorArgumento.validarIgual;
@@ -33,16 +35,61 @@ public class Alquiler {
     private String valor;
 
 
-    public Alquiler(Long id, Cliente cliente, Pelicula pelicula, LocalDate fechaAlquiler, LocalDate fechaDevolucion, String valor) {
+    public Alquiler(Long id, Cliente cliente, Pelicula pelicula) {
         validarObligatorio(cliente, SE_DEBE_INGRESAR_UN_CLIENTE);
         validarObligatorio(pelicula, SE_DEBE_INGRESAR_UNA_PELICULA);
         validarIgual(cliente.getEstado(), Cliente.VETATO, UN_CLIENTE_VETADO_NO_PUEDE_ALQUILAR);
         this.id = id;
         this.cliente = cliente;
         this.pelicula = pelicula;
-        this.fechaAlquiler = fechaAlquiler;
-        this.fechaDevolucion = fechaDevolucion;
-        this.valor= valor;
+        this.fechaAlquiler = LocalDate.now();
+        this.fechaDevolucion = calcularFechaDeDevolucion(cliente, pelicula);
+        this.valor= calcularValorAlquiler(cliente, pelicula);
     }
 
+    public LocalDate calcularFechaDeDevolucion(Cliente cliente, Pelicula pelicula){
+        int numeroDias = 0;
+        LocalDate fecha = LocalDate.now();
+
+        if (cliente.getEstado().equals(Cliente.ESTANDAR)) {
+            numeroDias = Alquiler.DIAS_ESTANDAR;
+        } else if (cliente.getEstado().equals(Cliente.INCUMPLIMIENTO)){
+            numeroDias = Alquiler.DIAS_INCUMPLIMIENTO;
+        }
+
+        while (numeroDias != 0) {
+            if (!fecha.getDayOfWeek().equals(DayOfWeek.SUNDAY) && !fecha.getDayOfWeek().equals(DayOfWeek.SATURDAY)) {
+                fecha = fecha.plusDays(1);
+                numeroDias -= 1;
+            } else {
+                fecha = fecha.plusDays(1);
+            }
+        }
+        return fecha;
+    }
+
+    public String calcularValorAlquiler(Cliente cliente, Pelicula pelicula){
+        double valor = 0;
+        if (cliente.getEstado().equals(Cliente.ESTANDAR)){
+            if (pelicula.getFormato().equals(Pelicula.FORMATO_DVD)){
+                valor = Alquiler.VALOR_DVD;
+            } else if (pelicula.getFormato().equals(Pelicula.FORMATO_BLUERAY)){
+                valor = Alquiler.VALOR_BLUERAY;
+            }
+        } else if (cliente.getEstado().equals(Cliente.INCUMPLIMIENTO)){
+            if (pelicula.getFormato().equals(Pelicula.FORMATO_DVD)){
+                valor = Alquiler.VALOR_DVD + (Alquiler.VALOR_DVD * Alquiler.PRIMER_INCREMENTO);
+            } else if (pelicula.getFormato().equals(Pelicula.FORMATO_BLUERAY)){
+                valor = Alquiler.VALOR_BLUERAY + (Alquiler.VALOR_BLUERAY * Alquiler.PRIMER_INCREMENTO);
+            }
+        } else if (cliente.getEstado().equals(Cliente.INCUMPLIMIENTO_X2)){
+            if (pelicula.getFormato().equals(Pelicula.FORMATO_DVD)){
+                valor = Alquiler.VALOR_DVD + (Alquiler.VALOR_DVD * Alquiler.SEGUNDO_INCREMENTO);
+            } else if (pelicula.getFormato().equals(Pelicula.FORMATO_BLUERAY)){
+                valor = Alquiler.VALOR_BLUERAY + (Alquiler.VALOR_BLUERAY * Alquiler.SEGUNDO_INCREMENTO);
+            }
+        }
+
+        return String.valueOf(valor + " USD");
+    }
 }

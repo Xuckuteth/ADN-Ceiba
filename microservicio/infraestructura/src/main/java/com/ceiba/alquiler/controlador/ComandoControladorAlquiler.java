@@ -16,15 +16,12 @@ import org.springframework.web.bind.annotation.*;
 public class ComandoControladorAlquiler {
     private final ManejadorCrearAlquiler manejadorCrearAlquiler;
     private final ManejadorEliminarAlquiler manejadorEliminarAlquiler;
-    private final ManejadorActualizarAlquier manejadorActualizarAlquier;
 
     @Autowired
     public ComandoControladorAlquiler(ManejadorCrearAlquiler manejadorCrearAlquiler,
-                                     ManejadorEliminarAlquiler manejadorEliminarAlquiler,
-                                     ManejadorActualizarAlquier manejadorActualizarAlquiler) {
+                                     ManejadorEliminarAlquiler manejadorEliminarAlquiler) {
         this.manejadorCrearAlquiler = manejadorCrearAlquiler;
         this.manejadorEliminarAlquiler = manejadorEliminarAlquiler;
-        this.manejadorActualizarAlquier = manejadorActualizarAlquiler;
     }
 
     @PostMapping
