@@ -57,7 +57,7 @@ public class AlquilerTestDataBuilder {
     }
 
     public Alquiler build() {
-        return new Alquiler(id, cliente, pelicula, fechaAlquiler,fechaDevolucion,valor);
+        return new Alquiler(id, cliente, pelicula);
     }
 
 }

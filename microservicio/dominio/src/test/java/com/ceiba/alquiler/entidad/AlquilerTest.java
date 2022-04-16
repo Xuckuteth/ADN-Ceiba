@@ -4,7 +4,6 @@ import com.ceiba.BasePrueba;
 import com.ceiba.alquiler.modelo.entidad.Alquiler;
 import com.ceiba.alquiler.servicio.testdatabuilder.AlquilerTestDataBuilder;
 import com.ceiba.dominio.excepcion.ExcepcionValorObligatorio;
-import com.ceiba.usuario.servicio.testdatabuilder.UsuarioTestDataBuilder;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import java.time.LocalDate;
