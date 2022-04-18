@@ -1,13 +1,10 @@
 package com.ceiba.alquiler.servicio;
 
-import com.ceiba.dominio.excepcion.ExcepcionDuplicidad;
 import com.ceiba.alquiler.modelo.entidad.Alquiler;
 import com.ceiba.alquiler.puerto.repositorio.RepositorioAlquiler;
 
 
 public class ServicioCrearAlquiler {
-
-    private static final String EL_ALQUILER_YA_EXISTE_EN_EL_SISTEMA = "El alquiler ya existe en el sistema";
 
     private final RepositorioAlquiler repositorioAlquiler;
 
@@ -16,16 +13,7 @@ public class ServicioCrearAlquiler {
     }
 
     public Long ejecutar(Alquiler alquiler) {
-        validarExistenciaPrevia(alquiler);
         return this.repositorioAlquiler.crear(alquiler);
-    }
-
-
-    private void validarExistenciaPrevia(Alquiler alquiler) {
-        boolean existe = this.repositorioAlquiler.existe(alquiler.getCliente().getNombre());
-        if(existe) {
-            throw new ExcepcionDuplicidad(EL_ALQUILER_YA_EXISTE_EN_EL_SISTEMA);
-        }
     }
 
 }
