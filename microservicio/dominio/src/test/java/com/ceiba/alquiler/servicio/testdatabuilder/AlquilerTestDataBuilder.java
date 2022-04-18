@@ -3,9 +3,6 @@ package com.ceiba.alquiler.servicio.testdatabuilder;
 import com.ceiba.alquiler.modelo.entidad.Alquiler;
 import com.ceiba.cliente.modelo.entidad.Cliente;
 import com.ceiba.pelicula.modelo.entidad.Pelicula;
-import com.ceiba.pelicula.servicio.testdatabuilder.PeliculaTestDataBuilder;
-import com.ceiba.usuario.modelo.entidad.Usuario;
-import com.ceiba.usuario.servicio.testdatabuilder.UsuarioTestDataBuilder;
 
 import java.time.LocalDate;
 

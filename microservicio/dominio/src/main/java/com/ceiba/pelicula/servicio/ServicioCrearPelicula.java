@@ -4,7 +4,6 @@ import com.ceiba.dominio.excepcion.ExcepcionDuplicidad;
 import com.ceiba.dominio.excepcion.ExcepcionValorInvalido;
 import com.ceiba.pelicula.modelo.entidad.Pelicula;
 import com.ceiba.pelicula.puerto.repositorio.RepositorioPelicula;
-import com.ceiba.usuario.modelo.entidad.Usuario;
 
 public class ServicioCrearPelicula {
 
