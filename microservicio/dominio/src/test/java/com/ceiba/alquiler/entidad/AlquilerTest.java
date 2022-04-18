@@ -6,6 +6,7 @@ import com.ceiba.alquiler.servicio.testdatabuilder.AlquilerTestDataBuilder;
 import com.ceiba.cliente.modelo.entidad.Cliente;
 import com.ceiba.dominio.excepcion.ExcepcionValorInvalido;
 import com.ceiba.dominio.excepcion.ExcepcionValorObligatorio;
+import com.ceiba.pelicula.modelo.entidad.Pelicula;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import java.time.LocalDate;
@@ -94,6 +95,53 @@ public class AlquilerTest {
                 },
                 ExcepcionValorInvalido.class, "El cliente se encuentra vetado y por lo tanto no puede crear un alquiler");
     }
+
+    @Test
+    @DisplayName("Deberia crear correctamente el alquiler si la pelicula es de formato DVD")
+    void deberiaCrearCorrectamenteElAlquilerConLaPeliculaDVD() {
+        // arrange
+        LocalDate fechaAlquiler = LocalDate.now();
+        //act
+        Alquiler alquiler= new AlquilerTestDataBuilder().conId(1L).conPelicula(new Pelicula(1L, "StarWars", "DVD")).build();
+        //assert
+        assertEquals(1, alquiler.getId());
+
+        assertEquals(1, alquiler.getCliente().getId());
+        assertEquals("Estiven", alquiler.getCliente().getNombre());
+        assertEquals("Incumplimiento", alquiler.getCliente().getEstado());
+
+        assertEquals(1, alquiler.getPelicula().getId());
+        assertEquals("StarWars", alquiler.getPelicula().getNombre());
+        assertEquals("DVD", alquiler.getPelicula().getFormato());
+
+        assertEquals(fechaAlquiler, alquiler.getFechaAlquiler());
+        assertEquals(alquiler.getFechaDevolucion(), alquiler.getFechaDevolucion());
+        assertEquals("9.6" + " USD", alquiler.getValor());
+    }
+
+    @Test
+    @DisplayName("Deberia crear correctamente el alquiler si la pelicula es de formato Blue-ray")
+    void deberiaCrearCorrectamenteElAlquilerConLaPeliculaBlueRay() {
+        // arrange
+        LocalDate fechaAlquiler = LocalDate.now();
+        //act
+        Alquiler alquiler= new AlquilerTestDataBuilder().conId(1L).conPelicula(new Pelicula(1L, "StarWars", "Blue-ray")).build();
+        //assert
+        assertEquals(1, alquiler.getId());
+
+        assertEquals(1, alquiler.getCliente().getId());
+        assertEquals("Estiven", alquiler.getCliente().getNombre());
+        assertEquals("Incumplimiento", alquiler.getCliente().getEstado());
+
+        assertEquals(1, alquiler.getPelicula().getId());
+        assertEquals("StarWars", alquiler.getPelicula().getNombre());
+        assertEquals("Blue-ray", alquiler.getPelicula().getFormato());
+
+        assertEquals(fechaAlquiler, alquiler.getFechaAlquiler());
+        assertEquals(alquiler.getFechaDevolucion(), alquiler.getFechaDevolucion());
+        assertEquals("14.4" + " USD", alquiler.getValor());
+    }
+    
 
     @Test
     void deberiaFallarSinCliente() {
