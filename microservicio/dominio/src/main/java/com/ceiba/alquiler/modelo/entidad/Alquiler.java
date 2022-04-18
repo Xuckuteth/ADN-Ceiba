@@ -42,11 +42,11 @@ public class Alquiler {
         this.cliente = cliente;
         this.pelicula = pelicula;
         this.fechaAlquiler = LocalDate.now();
-        this.fechaDevolucion = calcularFechaDeDevolucion(cliente, pelicula);
+        this.fechaDevolucion = calcularFechaDeDevolucion(cliente);
         this.valor= calcularValorAlquiler(cliente, pelicula);
     }
 
-    public LocalDate calcularFechaDeDevolucion(Cliente cliente, Pelicula pelicula){
+    public LocalDate calcularFechaDeDevolucion(Cliente cliente){
         int numeroDias = 0;
         LocalDate fecha = LocalDate.now();
 
