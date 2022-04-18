@@ -141,7 +141,7 @@ public class AlquilerTest {
         assertEquals(alquiler.getFechaDevolucion(), alquiler.getFechaDevolucion());
         assertEquals("14.4" + " USD", alquiler.getValor());
     }
-    
+
 
     @Test
     void deberiaFallarSinCliente() {

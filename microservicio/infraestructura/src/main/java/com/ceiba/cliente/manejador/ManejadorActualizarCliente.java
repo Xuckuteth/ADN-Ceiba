@@ -23,7 +23,9 @@ public class ManejadorActualizarCliente implements ManejadorComando<ComandoClien
     /**
      *
      */
-    public void ejecutar(ComandoCliente comandoCliente) {}
+    public void ejecutar(ComandoCliente comandoCliente) {
+        return;
+    }
 
     public void ejecutarModificar(DtoAlquiler dtoAlquiler) {
         DtoCliente clienteDto = this.daoCliente.consultarPorId(dtoAlquiler.getCliente());
