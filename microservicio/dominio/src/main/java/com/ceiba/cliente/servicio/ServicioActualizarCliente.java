@@ -1,17 +1,11 @@
 package com.ceiba.cliente.servicio;
 
 import com.ceiba.alquiler.modelo.dto.DtoAlquiler;
-import com.ceiba.alquiler.modelo.entidad.Alquiler;
-import com.ceiba.alquiler.puerto.dao.DaoAlquiler;
 import com.ceiba.cliente.modelo.dto.DtoCliente;
-import com.ceiba.cliente.puerto.dao.DaoCliente;
-import com.ceiba.dominio.excepcion.ExcepcionDuplicidad;
 import com.ceiba.cliente.modelo.entidad.Cliente;
 import com.ceiba.cliente.puerto.repositorio.RepositorioCliente;
 
 import java.time.LocalDate;
-import java.util.List;
-
 public class ServicioActualizarCliente {
 
 

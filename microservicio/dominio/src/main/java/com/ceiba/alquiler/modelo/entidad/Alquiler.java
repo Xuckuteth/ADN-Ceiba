@@ -70,27 +70,27 @@ public class Alquiler {
     }
 
     public String calcularValorAlquiler(Cliente cliente, Pelicula pelicula){
-        double valor = 0;
+        double valorAlquiler = 0;
         if (cliente.getEstado().equals(Cliente.ESTANDAR)){
             if (pelicula.getFormato().equals(Pelicula.FORMATO_DVD)){
-                valor = Alquiler.VALOR_DVD;
+                valorAlquiler = Alquiler.VALOR_DVD;
             } else if (pelicula.getFormato().equals(Pelicula.FORMATO_BLUERAY)){
-                valor = Alquiler.VALOR_BLUERAY;
+                valorAlquiler = Alquiler.VALOR_BLUERAY;
             }
         } else if (cliente.getEstado().equals(Cliente.INCUMPLIMIENTO)){
             if (pelicula.getFormato().equals(Pelicula.FORMATO_DVD)){
-                valor = Alquiler.VALOR_DVD + (Alquiler.VALOR_DVD * Alquiler.PRIMER_INCREMENTO);
+                valorAlquiler = Alquiler.VALOR_DVD + (Alquiler.VALOR_DVD * Alquiler.PRIMER_INCREMENTO);
             } else if (pelicula.getFormato().equals(Pelicula.FORMATO_BLUERAY)){
-                valor = Alquiler.VALOR_BLUERAY + (Alquiler.VALOR_BLUERAY * Alquiler.PRIMER_INCREMENTO);
+                valorAlquiler = Alquiler.VALOR_BLUERAY + (Alquiler.VALOR_BLUERAY * Alquiler.PRIMER_INCREMENTO);
             }
         } else if (cliente.getEstado().equals(Cliente.INCUMPLIMIENTO_X2)){
             if (pelicula.getFormato().equals(Pelicula.FORMATO_DVD)){
-                valor = Alquiler.VALOR_DVD + (Alquiler.VALOR_DVD * Alquiler.SEGUNDO_INCREMENTO);
+                valorAlquiler = Alquiler.VALOR_DVD + (Alquiler.VALOR_DVD * Alquiler.SEGUNDO_INCREMENTO);
             } else if (pelicula.getFormato().equals(Pelicula.FORMATO_BLUERAY)){
-                valor = Alquiler.VALOR_BLUERAY + (Alquiler.VALOR_BLUERAY * Alquiler.SEGUNDO_INCREMENTO);
+                valorAlquiler = Alquiler.VALOR_BLUERAY + (Alquiler.VALOR_BLUERAY * Alquiler.SEGUNDO_INCREMENTO);
             }
         }
 
-        return String.valueOf(valor + " USD");
+        return String.valueOf(valorAlquiler + " USD");
     }
 }
