@@ -16,11 +16,8 @@ public class AlquilerTestDataBuilder {
     private String valor;
 
     public AlquilerTestDataBuilder() {
-        cliente = new Cliente(1L,"Estiven","Estandar");
+        cliente = new Cliente(1L,"Estiven","Incumplimiento");
         pelicula = new Pelicula(1L,"StarWars","DVD");
-        fechaAlquiler = LocalDate.now();
-        fechaDevolucion = LocalDate.now().plusDays(10);
-        valor = "10";
     }
 
     public AlquilerTestDataBuilder conId(Long id) {
@@ -38,20 +35,6 @@ public class AlquilerTestDataBuilder {
         return this;
     }
 
-    public AlquilerTestDataBuilder conFechaAlquiler(LocalDate fechaAlquiler) {
-        this.fechaAlquiler = fechaAlquiler;
-        return this;
-    }
-
-    public AlquilerTestDataBuilder conFechaDevolucion(LocalDate fechaDevolucion) {
-        this.fechaDevolucion = fechaDevolucion;
-        return this;
-    }
-
-    public AlquilerTestDataBuilder conValor(String valor) {
-        this.valor = valor;
-        return this;
-    }
 
     public Alquiler build() {
         return new Alquiler(id, cliente, pelicula);

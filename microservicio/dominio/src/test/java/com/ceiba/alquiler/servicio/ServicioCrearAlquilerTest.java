@@ -7,6 +7,8 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 
+import java.time.LocalDate;
+
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class ServicioCrearAlquilerTest {
@@ -21,8 +23,19 @@ public class ServicioCrearAlquilerTest {
         ServicioCrearAlquiler servicioCrearAlquiler = new ServicioCrearAlquiler(repositorioAlquiler);
         // act
         Long idAlquiler = servicioCrearAlquiler.ejecutar(alquiler);
+        Long cliente = alquiler.getCliente().getId();
+        Long pelicula = alquiler.getPelicula().getId();
+        LocalDate fechaAlquiler = alquiler.getFechaAlquiler();
+        LocalDate fechaDevolucion = alquiler.getFechaDevolucion();
+        String valor = alquiler.getValor();
+
         //- assert
         assertEquals(10L,idAlquiler);
+        assertEquals(1L, cliente);
+        assertEquals(1L, pelicula);
+        assertEquals(LocalDate.now(), fechaAlquiler);
+        assertEquals(LocalDate.parse("2022-04-22"), fechaDevolucion);
+        assertEquals("9.6 USD", valor);
         Mockito.verify(repositorioAlquiler, Mockito.times(1)).crear(alquiler);
     }
 }
