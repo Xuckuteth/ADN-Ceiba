@@ -3,7 +3,6 @@ package com.ceiba.alquiler.modelo.entidad;
 import com.ceiba.cliente.modelo.entidad.Cliente;
 import com.ceiba.pelicula.modelo.entidad.Pelicula;
 import lombok.Getter;
-
 import java.time.DayOfWeek;
 import java.time.LocalDate;
 
@@ -54,6 +53,8 @@ public class Alquiler {
         if (cliente.getEstado().equals(Cliente.ESTANDAR)) {
             numeroDias = Alquiler.DIAS_ESTANDAR;
         } else if (cliente.getEstado().equals(Cliente.INCUMPLIMIENTO)){
+            numeroDias = Alquiler.DIAS_INCUMPLIMIENTO;
+        } else if (cliente.getEstado().equals(Cliente.INCUMPLIMIENTO_X2)){
             numeroDias = Alquiler.DIAS_INCUMPLIMIENTO;
         }
 

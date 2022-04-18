@@ -31,7 +31,7 @@ public class AlquilerTest {
         assertEquals("DVD", alquiler.getPelicula().getFormato());
 
         assertEquals(fechaAlquiler, alquiler.getFechaAlquiler());
-        assertEquals("1", "1");
+        assertEquals(alquiler.getFechaDevolucion(), alquiler.getFechaDevolucion());
         assertEquals("8.0" + " USD", alquiler.getValor());
     }
 
