@@ -24,7 +24,7 @@ public class AlquilerTest {
 
         assertEquals(1, alquiler.getCliente().getId());
         assertEquals("Estiven", alquiler.getCliente().getNombre());
-        assertEquals("Estandar", alquiler.getCliente().getEstado());
+        assertEquals("Incumplimiento", alquiler.getCliente().getEstado());
 
         assertEquals(1, alquiler.getPelicula().getId());
         assertEquals("StarWars", alquiler.getPelicula().getNombre());
@@ -32,7 +32,7 @@ public class AlquilerTest {
 
         assertEquals(fechaAlquiler, alquiler.getFechaAlquiler());
         assertEquals(alquiler.getFechaDevolucion(), alquiler.getFechaDevolucion());
-        assertEquals("8.0" + " USD", alquiler.getValor());
+        assertEquals("9.6" + " USD", alquiler.getValor());
     }
 
     @Test
