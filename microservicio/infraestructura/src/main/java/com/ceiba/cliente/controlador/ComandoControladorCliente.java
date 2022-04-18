@@ -17,15 +17,12 @@ public class ComandoControladorCliente {
 
     private final ManejadorCrearCliente manejadorCrearCliente;
     private final ManejadorEliminarCliente manejadorEliminarCliente;
-    private final ManejadorActualizarCliente manejadorActualizarCliente;
 
     @Autowired
     public ComandoControladorCliente(ManejadorCrearCliente manejadorCrearCliente,
-                                     ManejadorEliminarCliente manejadorEliminarCliente,
-                                     ManejadorActualizarCliente manejadorActualizarCliente) {
+                                     ManejadorEliminarCliente manejadorEliminarCliente) {
         this.manejadorCrearCliente = manejadorCrearCliente;
         this.manejadorEliminarCliente = manejadorEliminarCliente;
-        this.manejadorActualizarCliente = manejadorActualizarCliente;
     }
 
     @PostMapping

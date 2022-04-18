@@ -5,7 +5,6 @@ import com.ceiba.cliente.modelo.dto.DtoCliente;
 import com.ceiba.cliente.puerto.dao.DaoCliente;
 import com.ceiba.manejador.ManejadorComando;
 import com.ceiba.cliente.comando.ComandoCliente;
-import com.ceiba.cliente.comando.fabrica.FabricaCliente;
 import com.ceiba.cliente.servicio.ServicioActualizarCliente;
 import org.springframework.stereotype.Component;
 
@@ -13,16 +12,17 @@ import org.springframework.stereotype.Component;
 @Component
 public class ManejadorActualizarCliente implements ManejadorComando<ComandoCliente> {
 
-    private final FabricaCliente fabricaCliente;
     private final ServicioActualizarCliente servicioActualizarCliente;
     private final DaoCliente daoCliente;
 
-    public ManejadorActualizarCliente(FabricaCliente fabricaCliente, ServicioActualizarCliente servicioActualizarCliente, DaoCliente daoCliente) {
-        this.fabricaCliente = fabricaCliente;
+    public ManejadorActualizarCliente(ServicioActualizarCliente servicioActualizarCliente, DaoCliente daoCliente) {
         this.servicioActualizarCliente = servicioActualizarCliente;
         this.daoCliente = daoCliente;
     }
 
+    /**
+     *
+     */
     public void ejecutar(ComandoCliente comandoCliente) {}
 
     public void ejecutarModificar(DtoAlquiler dtoAlquiler) {
