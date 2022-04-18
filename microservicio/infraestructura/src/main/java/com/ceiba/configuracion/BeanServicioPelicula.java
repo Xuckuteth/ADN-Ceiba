@@ -1,7 +1,6 @@
 package com.ceiba.configuracion;
 
 import com.ceiba.pelicula.puerto.repositorio.RepositorioPelicula;
-import com.ceiba.pelicula.servicio.ServicioActualizarPelicula;
 import com.ceiba.pelicula.servicio.ServicioCrearPelicula;
 import com.ceiba.pelicula.servicio.ServicioEliminarPelicula;
 import org.springframework.context.annotation.Bean;
@@ -20,8 +19,4 @@ public class BeanServicioPelicula {
         return new ServicioEliminarPelicula(repositorioPelicula);
     }
 
-    @Bean
-    public ServicioActualizarPelicula servicioActualizarPelicula(RepositorioPelicula repositorioPelicula) {
-        return new ServicioActualizarPelicula(repositorioPelicula);
-    }
 }

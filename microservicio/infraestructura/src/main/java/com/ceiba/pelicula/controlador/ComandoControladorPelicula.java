@@ -2,7 +2,6 @@ package com.ceiba.pelicula.controlador;
 
 import com.ceiba.ComandoRespuesta;
 import com.ceiba.pelicula.comando.ComandoPelicula;
-import com.ceiba.pelicula.manejador.ManejadorActualizarPelicula;
 import com.ceiba.pelicula.manejador.ManejadorCrearPelicula;
 import com.ceiba.pelicula.manejador.ManejadorEliminarPelicula;
 import io.swagger.annotations.Api;
@@ -17,15 +16,12 @@ public class ComandoControladorPelicula {
 
     private final ManejadorCrearPelicula manejadorCrearPelicula;
     private final ManejadorEliminarPelicula manejadorEliminarPelicula;
-    private final ManejadorActualizarPelicula manejadorActualizarPelicula;
 
     @Autowired
     public ComandoControladorPelicula(ManejadorCrearPelicula manejadorCrearPelicula,
-                                     ManejadorEliminarPelicula manejadorEliminarPelicula,
-                                     ManejadorActualizarPelicula manejadorActualizarPelicula) {
+                                     ManejadorEliminarPelicula manejadorEliminarPelicula) {
         this.manejadorCrearPelicula = manejadorCrearPelicula;
         this.manejadorEliminarPelicula = manejadorEliminarPelicula;
-        this.manejadorActualizarPelicula = manejadorActualizarPelicula;
     }
 
     @PostMapping
@@ -40,10 +36,4 @@ public class ComandoControladorPelicula {
         manejadorEliminarPelicula.ejecutar(id);
     }
 
-    @PutMapping(value="/{id}")
-    @ApiOperation("Actualizar pelicula")
-    public void actualizar(@RequestBody ComandoPelicula comandoPelicula,@PathVariable Long id) {
-        comandoPelicula.setId(id);
-        manejadorActualizarPelicula.ejecutar(comandoPelicula);
-    }
 }
