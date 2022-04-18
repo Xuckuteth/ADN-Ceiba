@@ -48,10 +48,6 @@ public class RepositorioAlquilerMysql implements RepositorioAlquiler {
         this.customNamedParameterJdbcTemplate.getNamedParameterJdbcTemplate().update(sqlEliminar, paramSource);
     }
 
-    @Override
-    public void actualizar(Alquiler alquiler) {
-        this.customNamedParameterJdbcTemplate.actualizar(alquiler, sqlActualizar);
-    }
 
     @Override
     public boolean existePorId(Long id) {

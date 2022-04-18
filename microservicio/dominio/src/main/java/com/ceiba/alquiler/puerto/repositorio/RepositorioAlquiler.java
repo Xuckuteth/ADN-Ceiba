@@ -12,12 +12,6 @@ public interface RepositorioAlquiler {
     Long crear(Alquiler alquiler);
 
     /**
-     * Permite actualizar un alquiler
-     * @param alquiler
-     */
-    void actualizar(Alquiler alquiler);
-
-    /**
      * Permite eliminar un alquiler
      * @param id
      */
