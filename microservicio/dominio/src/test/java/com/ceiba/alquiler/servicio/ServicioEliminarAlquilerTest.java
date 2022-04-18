@@ -1,6 +1,7 @@
 package com.ceiba.alquiler.servicio;
 
 import com.ceiba.alquiler.puerto.repositorio.RepositorioAlquiler;
+import com.ceiba.cliente.puerto.repositorio.RepositorioCliente;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
@@ -15,7 +16,6 @@ public class ServicioEliminarAlquilerTest {
         servicioEliminarAlquiler.ejecutar(1l);
 
         Mockito.verify(repositorioAlquiler, Mockito.times(1)).eliminar(1l);
-
     }
 
 }
