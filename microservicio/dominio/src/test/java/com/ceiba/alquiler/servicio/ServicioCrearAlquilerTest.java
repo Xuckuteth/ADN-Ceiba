@@ -34,7 +34,7 @@ public class ServicioCrearAlquilerTest {
         assertEquals(1L, cliente);
         assertEquals(1L, pelicula);
         assertEquals(LocalDate.now(), fechaAlquiler);
-        assertEquals(LocalDate.parse("2022-04-22"), fechaDevolucion);
+        assertEquals(LocalDate.parse("2022-04-26"), fechaDevolucion);
         assertEquals("9.6 USD", valor);
         Mockito.verify(repositorioAlquiler, Mockito.times(1)).crear(alquiler);
     }

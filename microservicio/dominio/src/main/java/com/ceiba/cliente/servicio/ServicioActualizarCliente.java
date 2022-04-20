@@ -21,6 +21,8 @@ public class ServicioActualizarCliente {
     }
 
 
+
+
     private Cliente actualizarEstadoCliente(DtoAlquiler alquiler, DtoCliente dtoCliente) {
         LocalDate fecha = LocalDate.now();
         Cliente cliente = new Cliente(dtoCliente.getId(), dtoCliente.getNombre(), dtoCliente.getEstado());

@@ -48,9 +48,15 @@ public class ComandoControladorAlquilerTest {
     @DisplayName("Deberia eliminar un alquiler")
     void deberiaEliminarUnAlquiler() throws Exception {
         // arrange
-        Long id = 1L;
+        ComandoAlquiler alquiler = new ComandoAlquilerTestDataBuilder().build();
         // act - assert
-        mocMvc.perform(delete("/alquileres/{id}",id)
+
+        mocMvc.perform(get("/alquileres")
+                        .contentType(MediaType.APPLICATION_JSON))
+                .andExpect(status().isOk())
+                .andExpect(jsonPath("$", hasSize(1)));
+
+        mocMvc.perform(delete("/alquileres/{id}",alquiler.getId())
                         .contentType(MediaType.APPLICATION_JSON)
                         .accept(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk());
