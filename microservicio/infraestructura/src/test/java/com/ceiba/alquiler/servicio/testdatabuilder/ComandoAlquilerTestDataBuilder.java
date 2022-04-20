@@ -15,12 +15,8 @@ public class ComandoAlquilerTestDataBuilder {
     public String valor;
 
     public ComandoAlquilerTestDataBuilder() {
-        id = 1L;
-        cliente = new Cliente(1L, "Juan", "Estandar");
+        cliente = new Cliente(1L, "Juan", "Incumplimiento X2");
         pelicula = new Pelicula(1L, "Matrix", "DVD");
-        fechaAlquiler = LocalDate.now();
-        fechaDevolucion = LocalDate.now().minusDays(2);
-        valor = "10";
     }
 
     public ComandoAlquilerTestDataBuilder conCliente(Cliente cliente) {
