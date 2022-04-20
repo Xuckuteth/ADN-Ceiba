@@ -15,6 +15,7 @@ public class ComandoAlquilerTestDataBuilder {
     public String valor;
 
     public ComandoAlquilerTestDataBuilder() {
+        id = 1L;
         cliente = new Cliente(1L, "Juan", "Incumplimiento X2");
         pelicula = new Pelicula(1L, "Matrix", "DVD");
     }
